@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LIS Project Overview</title>
   <style>
-    /* Reset some defaults */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,31 +19,56 @@
       color: #333;
     }
 
-    h1, h2 {
+    h1 {
       color: #0B3D91;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    dl {
+    /* Tabs */
+    .tabs {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      display: flex;
+      border-bottom: 3px solid #0B3D91;
+      border-radius: 8px 8px 0 0;
+      overflow-x: auto;
+    }
+
+    .tab {
+      padding: 15px 25px;
+      cursor: pointer;
+      background: #ffffffdd;
+      color: #0B3D91;
+      font-weight: bold;
+      border-right: 1px solid #0B3D91;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .tab:last-child {
+      border-right: none;
+    }
+
+    .tab.active {
+      background: #0B3D91;
+      color: white;
+      border-radius: 8px 8px 0 0;
+    }
+
+    /* Tab content */
+    .tab-content {
       max-width: 900px;
       margin: auto;
       background: #ffffffdd;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 0 0 12px 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
     }
 
-    dt {
-      font-weight: bold;
-      font-size: 24px;
-      margin-top: 30px;
-      color: #0B3D91;
-    }
-
-    dd {
-      margin-left: 0;
-      margin-top: 10px;
-      margin-bottom: 20px;
+    .tab-content.active {
+      display: block;
     }
 
     .profile-section {
@@ -85,7 +109,6 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       .profile-section {
         flex-direction: column;
@@ -96,49 +119,94 @@
       .profile-section img {
         margin-bottom: 15px;
       }
+
+      .tabs {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>IS 270 Specialization Dossier</h1>
+<h1>IS 270 Specialization Dossier</h1>
 
-  <dl>
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" data-tab="welcome">Welcome</div>
+  <div class="tab" data-tab="overview">Overview</div>
+  <div class="tab" data-tab="tasks">Typical Tasks</div>
+  <div class="tab" data-tab="context">Professional Context</div>
+  <div class="tab" data-tab="jobmarket">Job-market Outlook</div>
+  <div class="tab" data-tab="skills">Technical Skills</div>
+  <div class="tab" data-tab="trends">Labor Trends</div>
+  <div class="tab" data-tab="summary">Summary</div>
+</div>
 
-    <dt>Welcome & Introduction</dt>
-    <dd>Welcome to our GitHub highlighting the work of LIS professionals, specifically in the development specialization. This project was conducted by Anna Freidman, Diana Naughton, Emma Hughes, and Sam Garcia for IS 270: Systems and Infrastructures. In order to gain insight into the field and assess how AI is impacting Library and Information Science (LIS) work, we conducted an interview with Lauren Trujillo and conducted secondary research highlighting the profession. The following is a compiled collection and analysis of our findings.</dd>
+<!-- Tab Contents -->
+<div id="welcome" class="tab-content active">
+  <h2>Welcome & Introduction</h2>
+  <p>Welcome to our GitHub highlighting the work of LIS professionals, specifically in the development specialization. This project was conducted by Anna Freidman, Diana Naughton, Emma Hughes, and Sam Garcia for IS 270: Systems and Infrastructures. In order to gain insight into the field and assess how AI is impacting Library and Information Science (LIS) work, we conducted an interview with Lauren Trujillo and conducted secondary research highlighting the profession. The following is a compiled collection and analysis of our findings.</p>
+</div>
 
-    <dt>Overview</dt>
-    <div class="profile-section">
-      <img src="https://sblibraryfoundation.org/wp-content/uploads/2024/11/Lauren-T-Headshot-scaled-e1732229974543.jpg" alt="Lauren Trujillo">
-      <dd><a href="https://sblibraryfoundation.org/leadership/staff/">Lauren Trujillo</a> serves as the Executive Director of the Santa Barbara Public Library Foundation, where she has been for 7 years. She previously worked solely in fundraising for the public library in the form of capital and campaigns as Foundation Director. She later transitioned to the role of Executive Director where she "wears all the hats" including fundraising, marketing, board liaison, tech and IT, AI consultant, etc. Her department has only 3 staff who work to raise anywhere from $1 million to $6 million each year.</dd>
-    </div>
+<div id="overview" class="tab-content">
+  <h2>Overview</h2>
+  <div class="profile-section">
+    <img src="https://sblibraryfoundation.org/wp-content/uploads/2024/11/Lauren-T-Headshot-scaled-e1732229974543.jpg" alt="Lauren Trujillo">
+    <p><a href="https://sblibraryfoundation.org/leadership/staff/">Lauren Trujillo</a> serves as the Executive Director of the Santa Barbara Public Library Foundation, where she has been for 7 years. She previously worked solely in fundraising for the public library in the form of capital and campaigns as Foundation Director. She later transitioned to the role of Executive Director where she "wears all the hats" including fundraising, marketing, board liaison, tech and IT, AI consultant, etc. Her department has only 3 staff who work to raise anywhere from $1 million to $6 million each year.</p>
+  </div>
+  <div class="button-container">
+    <a href="interview-button.png">
+      <img src="interview-button.png" alt="Click to listen to interview">
+    </a>
+  </div>
+</div>
 
-    <div class="button-container">
-      <a href="interview-button.png">
-        <img src="interview-button.png" alt="Click to listen to interview">
-      </a>
-    </div>
+<div id="tasks" class="tab-content">
+  <h2>Typical Tasks</h2>
+  <p>Typical tasks for LIS professionals in development roles include managing donor relations, coordinating fundraising campaigns, preparing grant proposals, overseeing marketing and communications, leveraging technology for outreach, analyzing fundraising data, maintaining databases, and providing AI-driven insights to optimize operations.</p>
+</div>
 
-    <dt>Typical Tasks</dt>
-    <dd>ADD TEXT</dd>
+<div id="context" class="tab-content">
+  <h2>Professional Context</h2>
+  <p>Development specialists in libraries often work at the intersection of fundraising, public relations, and technology. They support the mission of the library by securing funding, engaging the community, and implementing innovative solutions. These roles require adaptability, strong communication skills, and the ability to use emerging technologies like AI to enhance workflow and decision-making.</p>
+</div>
 
-    <dt>Professional Context</dt>
-    <dd>ADD TEXT</dd>
+<div id="jobmarket" class="tab-content">
+  <h2>Job-market Outlook</h2>
+  <p>The demand for development professionals in libraries is growing, particularly those with expertise in digital tools, data analysis, and donor engagement. According to recent LIS labor market studies, positions in library development and fundraising are expected to see moderate growth, with higher salaries offered to professionals who combine traditional library skills with technological proficiency and AI literacy.</p>
+</div>
 
-    <dt>Job-market Outlook</dt>
-    <dd>ADD TEXT</dd>
+<div id="skills" class="tab-content">
+  <h2>Technical Skills Snapshot</h2>
+  <p>Key technical skills for LIS development professionals include: donor management software (e.g., Raiser’s Edge), database management, CRM tools, data analysis and visualization, social media management, marketing software, and AI applications for predictive analytics and operational efficiency. Familiarity with IT infrastructure and cybersecurity is also increasingly important.</p>
+</div>
 
-    <dt>Technical Skills Snapshot</dt>
-    <dd>ADD TEXT</dd>
+<div id="trends" class="tab-content">
+  <h2>Labor Trends</h2>
+  <p>Labor trends show an increasing integration of AI and automation in LIS development roles, which allows professionals to streamline tasks such as donor analytics, reporting, and targeted outreach. Smaller teams are expected to accomplish more through technology, highlighting the need for cross-functional skills that blend traditional library expertise with IT, marketing, and fundraising competencies.</p>
+</div>
 
-    <dt>Labor Trends</dt>
-    <dd>ADD TEXT</dd>
+<div id="summary" class="tab-content">
+  <h2>Summary</h2>
+  <p>LIS development roles are evolving rapidly with the integration of technology and AI. Professionals like Lauren Trujillo demonstrate that success in these positions requires adaptability, technical skills, and strategic thinking. By combining fundraising expertise with innovative tools, LIS professionals can significantly impact library operations and community engagement.</p>
+</div>
 
-    <dt>Summary</dt>
-    <dd>ADD TEXT</dd>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
 
-  </dl>
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active from all tabs and contents
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      // Activate selected tab and corresponding content
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
